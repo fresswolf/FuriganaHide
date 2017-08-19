@@ -30,20 +30,12 @@
 				<key>Menu Items</key>
 				<array>
 					<dict>
-						<key>Checked State</key>
-						<integer>0</integer>
-						<key>Identifier</key>
-						<string>disableGlobally</string>
-						<key>Title</key>
-						<string>Disable FuriganaHide globally</string>
-					</dict>
-					<dict>
 						<key>Disabled</key>
 						<true/>
 						<key>Identifier</key>
-						<string>disableForDomain</string>
+						<string>enableForDomain</string>
 						<key>Title</key>
-						<string>Disable FuriganaHide for current Domain</string>
+						<string>Enable FuriganaHide for current Domain</string>
 					</dict>
 				</array>
 			</dict>
@@ -52,7 +44,7 @@
 		<array>
 			<dict>
 				<key>Identifier</key>
-				<string>hideFuriganaToolbar</string>
+				<string>FuriganaHideToolbar</string>
 				<key>Image</key>
 				<string>kana.png</string>
 				<key>Include By Default</key>

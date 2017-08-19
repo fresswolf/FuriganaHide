@@ -10,6 +10,7 @@ var FuriganaHide = (function() {
 
     FuriganaHide.prototype.messageHandler = function(messageEvent) {
         if (messageEvent.name == "furiganaHideEnabledAnswer") {
+
             if (messageEvent.message === true) {
                 document.body.classList.add('furiganaHide');
             } else {

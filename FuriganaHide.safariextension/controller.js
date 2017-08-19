@@ -14,8 +14,9 @@ var Controller = (function() {
 
     Controller.prototype.messageHandler = function(messageEvent) {
         if (messageEvent.name == "furiganaHideEnabled") {
+            
             var domain = messageEvent.message;
-            var enabled = this.settings.isEnabledGlobally() && this.settings.isEnabledForDomain(domain);
+            var enabled = this.settings.isEnabledForDomain(domain);
 
             if (messageEvent.target.page) {
                 messageEvent.target.page.dispatchMessage("furiganaHideEnabledAnswer", enabled);
@@ -25,14 +26,12 @@ var Controller = (function() {
 
     Controller.prototype.onToolbarButtonClick = function(event) {
         var domain = this.getCurrentDomain();
-        if (event.command == "disableGlobally") {
-            this.settings.enableGlobally(!this.settings.isEnabledGlobally());
-        } else if (event.command == "disableForDomain") {
+        if (event.command == "enableForDomain") {
             this.settings.enableForDomain(!this.settings.isEnabledForDomain(domain), domain);
         }
         this.onPageChange();
 
-        var enabled = this.settings.isEnabledGlobally() && this.settings.isEnabledForDomain(domain);
+        var enabled = this.settings.isEnabledForDomain(domain);
         safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("furiganaHideEnabledAnswer", enabled);
     }
 
@@ -48,9 +47,8 @@ var Controller = (function() {
     Controller.prototype.onPageChange = function() {
         var domain = this.getCurrentDomain();
 
-        var disabledGlobally = !this.settings.isEnabledGlobally();
-        var disabledForDomain = !this.settings.isEnabledForDomain(domain);
-        this.toolbar.refresh(disabledGlobally, disabledForDomain, domain);
+        var enabledForDomain = this.settings.isEnabledForDomain(domain);
+        this.toolbar.refresh(enabledForDomain, domain);
     }
 
     return Controller;

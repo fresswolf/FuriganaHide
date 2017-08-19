@@ -7,37 +7,31 @@ var Toolbar = (function() {
         var itemArray = safari.extension.toolbarItems;
         for (var i = 0; i < itemArray.length; ++i) {
             var item = itemArray[i];
-            if (item.identifier == "hideFuriganaToolbar") {
+            if (item.identifier == "FuriganaHideToolbar") {
                 for (var i = 0; i < item.menu.menuItems.length; ++i) {
                     var menuItem = item.menu.menuItems[i];
-                    if (menuItem.identifier == "disableGlobally") {
-                        this.disableGloballyButton = menuItem;
-                    }
-                    if (menuItem.identifier == "disableForDomain") {
-                        this.disableForDomainButtonTitle = menuItem.title;
-                        this.disableForDomainButton = menuItem;
+                    if (menuItem.identifier == "enableForDomain") {
+                        this.enableForDomainButtonTitle = menuItem.title;
+                        this.enableForDomainButton = menuItem;
                     }
                 }
             }
         }
     }
 
-    Toolbar.prototype.refresh = function(disableGlobally, disableForDomain, domain) {
-        if (disableGlobally == undefined) {
-            disableGlobally = false;
-        }
-        if (disableForDomain == undefined) {
-            disableForDomain = false;
-        }
-        this.disableGloballyButton.checkedState = disableGlobally;
-        this.disableForDomainButton.checkedState = disableForDomain;
+    Toolbar.prototype.refresh = function(enabledForDomain, domain) {
+        this.enableForDomainButton.checkedState = false;
 
         if (domain) {
-            this.disableForDomainButton.disabled = false;
-            this.disableForDomainButton.title = this.disableForDomainButtonTitle + " (" + domain + ")";
+            this.enableForDomainButton.disabled = false;
+            if (enabledForDomain) {
+                this.enableForDomainButton.title = "Disable for " + domain;
+            } else {
+                this.enableForDomainButton.title = "Enable for " + domain;
+            }
         } else {
-            this.disableForDomainButton.disabled = true;
-            this.disableForDomainButton.title = this.disableForDomainButtonTitle;
+            this.enableForDomainButton.disabled = true;
+            this.enableForDomainButton.title = this.enableForDomainButtonTitle;
         }
     }
 

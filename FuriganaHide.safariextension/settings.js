@@ -7,26 +7,18 @@ var Settings = (function() {
 
     }
 
-    Settings.prototype.enableGlobally = function(enable) {
-        localStorage.setItem("disabledGlobally", enable ? 0 : 1);
-    }
-
     Settings.prototype.enableForDomain = function(enable, domain) {
         if (domain == undefined) {
             return;
         }
-        localStorage.setItem(domain, enable ? 0 : 1);
-    }
-
-    Settings.prototype.isEnabledGlobally = function() {
-        return !JSON.parse(localStorage.getItem("disabledGlobally"));
+        localStorage.setItem(domain, enable ? "true" : "false");
     }
 
     Settings.prototype.isEnabledForDomain = function(domain) {
         if (domain == undefined) {
-            return true;
+            return false;
         }
-        return !JSON.parse(localStorage.getItem(domain));
+        return JSON.parse(localStorage.getItem(domain));
     }
 
     return Settings;
