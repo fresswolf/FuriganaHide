@@ -1,0 +1,7 @@
+ruby rt {
+    opacity: 0 !important;
+}
+
+ruby:hover rt, ruby rt:hover {
+    opacity: inherit !important;
+}
