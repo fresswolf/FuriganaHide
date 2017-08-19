@@ -16,8 +16,63 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<integer>1048576</integer>
+		<key>Global Page</key>
+		<string>global.html</string>
+		<key>Menus</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>FuriganaHideMenu</string>
+				<key>Menu Items</key>
+				<array>
+					<dict>
+						<key>Checked State</key>
+						<integer>0</integer>
+						<key>Identifier</key>
+						<string>disableGlobally</string>
+						<key>Title</key>
+						<string>Disable FuriganaHide globally</string>
+					</dict>
+					<dict>
+						<key>Disabled</key>
+						<true/>
+						<key>Identifier</key>
+						<string>disableForDomain</string>
+						<key>Title</key>
+						<string>Disable FuriganaHide for current Domain</string>
+					</dict>
+				</array>
+			</dict>
+		</array>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>hideFuriganaToolbar</string>
+				<key>Image</key>
+				<string>kana.png</string>
+				<key>Include By Default</key>
+				<true/>
+				<key>Label</key>
+				<string>FuriganaHide</string>
+				<key>Menu</key>
+				<string>FuriganaHideMenu</string>
+			</dict>
+		</array>
+	</dict>
 	<key>Content</key>
 	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>local.js</string>
+			</array>
+		</dict>
 		<key>Stylesheets</key>
 		<array>
 			<string>style.css</string>

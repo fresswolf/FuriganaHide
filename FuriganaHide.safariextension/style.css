@@ -1,7 +1,7 @@
-ruby rt {
+body.furiganaHide ruby rt {
     opacity: 0 !important;
 }
 
-ruby:hover rt, ruby rt:hover {
+body.furiganaHide ruby:hover rt, body.furiganaHide ruby rt:hover {
     opacity: inherit !important;
 }
