@@ -9,3 +9,6 @@ It can be enabled/disabled per domain.
 Double click the file "FuriganaHide.safariextz" to add the extension to Safari.
 ## Usage
 Click the FuriganaHide toolbar button and click the enable button to hide all furigana sites on the current domain.
+
+Video explanation:
+[![EXPLANATION VIDEO](http://img.youtube.com/vi/faE4dp5C40k/0.jpg)](http://www.youtube.com/watch?v=faE4dp5C40k "FuriganaHide Safari extension used on NHK Easy News site")
